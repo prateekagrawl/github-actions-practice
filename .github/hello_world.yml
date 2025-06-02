@@ -1,0 +1,33 @@
+name: Hello world workflow
+
+# on keyword specifies the events that trigger the workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# jobs keyword defines a collection of jobs that will run as part of the workflow
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+
+    # steps keyword defines a sequence of tasks to be executed
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print Hello World
+        run: echo "Hello, World!"
+        shell: bash
+
+  goodbye_world_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Goodbye World
+        run: echo "Goodbye, World!"
+        shell: bash
